@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y install \
   iproute2 net-tools vim tmux ssh lsof screen dtach \
   lynx psmisc strace apt-transport-https postgresql-client \
   software-properties-common gnupg jq tcpdump httpie \
-  python-setuptools python3-setuptools build-essentials \
+  python-setuptools python3-setuptools build-essential \
   gcc g++ make
 
 ENV _PIP_VERSION=9.0.1
