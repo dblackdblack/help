@@ -9,6 +9,7 @@ RUN apt-get update && apt-get -y install \
   && ln -sf /bin/bash /bin/sh
 
 ENV _PIP_VERSION=9.0.1
+    
 RUN easy_install pip==$_PIP_VERSION \
   && easy_install3 pip==$_PIP_VERSION \
   && pip install boto boto3 ipython \
@@ -17,3 +18,5 @@ RUN easy_install pip==$_PIP_VERSION \
 RUN add-apt-repository ppa:git-core/ppa \
   && apt-get update \
   && apt-get -y install git
+
+ENV CACHE_BUSTER=1
