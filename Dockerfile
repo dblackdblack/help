@@ -7,8 +7,9 @@ RUN apt-get update && apt-get -y install \
   python-setuptools python3-setuptools build-essentials \
   gcc g++ make
 
-RUN easy_install pip==9.0.1 \
-  && easy_install3 pip==9.0.1 \
+ENV _PIP_VERSION=9.0.1
+RUN easy_install pip==$_PIP_VERSION \
+  && easy_install3 pip==$_PIP_VERSION \
   && pip install boto boto3 ipython \
   && pip3 install boto boto3 ipython
 
