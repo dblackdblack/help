@@ -7,4 +7,4 @@ RUN apt-get update && apt-get -y install \
 
 RUN add-apt-repository ppa:git-core/ppa \
   && apt-get update \
-  && apt-get install git
+  && apt-get -y install git
