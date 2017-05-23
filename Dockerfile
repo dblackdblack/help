@@ -6,11 +6,13 @@ RUN apt-get update && apt-get -y install \
     software-properties-common gnupg jq tcpdump httpie \
     python-setuptools python3-setuptools build-essential \
     gcc g++ make locales \
+  && apt-get clean \
   && ln -sf /bin/bash /bin/sh
 
 RUN add-apt-repository ppa:git-core/ppa \
   && apt-get update \
-  && apt-get -y install git
+  && apt-get -y install git \
+  && apt-get clean \
 
 ENV _PIP_VERSION=9.0.1
     
