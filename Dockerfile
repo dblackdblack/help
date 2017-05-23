@@ -19,4 +19,4 @@ RUN add-apt-repository ppa:git-core/ppa \
   && apt-get update \
   && apt-get -y install git
 
-CMD ["bash", "-xe", "exec sleep infinity"]
+CMD ["bash", "-xec", "exec sleep infinity"]
