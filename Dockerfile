@@ -12,7 +12,7 @@ RUN apt-get update && apt-get -y install \
 RUN add-apt-repository ppa:git-core/ppa \
   && apt-get update \
   && apt-get -y install git \
-  && apt-get clean \
+  && apt-get clean
 
 ENV _PIP_VERSION=9.0.1
     
