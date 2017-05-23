@@ -8,15 +8,15 @@ RUN apt-get update && apt-get -y install \
     gcc g++ make locales \
   && ln -sf /bin/bash /bin/sh
 
+RUN add-apt-repository ppa:git-core/ppa \
+  && apt-get update \
+  && apt-get -y install git
+
 ENV _PIP_VERSION=9.0.1
     
 RUN easy_install pip==$_PIP_VERSION \
   && easy_install3 pip==$_PIP_VERSION \
   && pip install boto boto3 ipython \
   && pip3 install boto boto3 ipython
-
-RUN add-apt-repository ppa:git-core/ppa \
-  && apt-get update \
-  && apt-get -y install git
 
 CMD ["bash", "-xec", "exec sleep infinity"]
