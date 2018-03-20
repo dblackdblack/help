@@ -18,7 +18,7 @@ ENV _PIP_VERSION=9.0.1
     
 RUN easy_install pip==$_PIP_VERSION \
   && easy_install3 pip==$_PIP_VERSION \
-  && pip install boto boto3 ipython \
-  && pip3 install boto boto3 ipython
+  && pip install boto boto3 ipython redis \
+  && pip3 install boto boto3 ipython redis
 
 CMD ["bash", "-xec", "exec sleep infinity"]
