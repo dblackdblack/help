@@ -5,7 +5,7 @@ RUN apt-get update && apt-get -y install \
     lynx psmisc strace apt-transport-https postgresql-client \
     software-properties-common gnupg jq tcpdump httpie \
     python-setuptools python3-setuptools build-essential \
-    gcc g++ make locales \
+    gcc g++ make locales traceroute \
   && apt-get clean \
   && ln -sf /bin/bash /bin/sh
 
@@ -14,11 +14,12 @@ RUN add-apt-repository ppa:git-core/ppa \
   && apt-get -y install git \
   && apt-get clean
 
-ENV _PIP_VERSION=9.0.2
+ENV _PIP_VERSION=9.0.2 \
+    PYTHON_PACKAGES="boto boto3 ipython redis"
     
 RUN easy_install pip==$_PIP_VERSION \
   && easy_install3 pip==$_PIP_VERSION \
-  && pip install boto boto3 ipython redis \
-  && pip3 install boto boto3 ipython redis
+  && pip install $PYTHON_PACKAGES \
+  && pip3 install $PYTHON_PACKAGES
 
 CMD ["bash", "-xec", "exec sleep infinity"]
