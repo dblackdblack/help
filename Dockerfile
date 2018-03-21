@@ -14,7 +14,7 @@ RUN add-apt-repository ppa:git-core/ppa \
   && apt-get -y install git \
   && apt-get clean
 
-ENV _PIP_VERSION=9.0.1
+ENV _PIP_VERSION=9.0.2
     
 RUN easy_install pip==$_PIP_VERSION \
   && easy_install3 pip==$_PIP_VERSION \
