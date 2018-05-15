@@ -20,6 +20,7 @@ ENV _PIP_VERSION=9.0.2 \
 RUN easy_install pip==$_PIP_VERSION \
   && easy_install3 pip==$_PIP_VERSION \
   && pip install $PYTHON_PACKAGES \
-  && pip3 install $PYTHON_PACKAGES
+  && pip3 install $PYTHON_PACKAGES \
+  && pip3 install awscli
 
 CMD ["bash", "-xec", "exec sleep infinity"]
