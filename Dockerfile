@@ -5,7 +5,7 @@ RUN apt-get update && apt-get -y install \
     lynx psmisc strace apt-transport-https postgresql-client \
     software-properties-common gnupg jq tcpdump httpie \
     python-setuptools python3-setuptools build-essential \
-    gcc g++ make locales traceroute \
+    gcc g++ make locales traceroute groff \
   && apt-get clean \
   && ln -sf /bin/bash /bin/sh
 
