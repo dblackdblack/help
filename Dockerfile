@@ -14,6 +14,8 @@ RUN add-apt-repository ppa:git-core/ppa \
   && apt-get -y install git \
   && apt-get clean
 
+ENV PYTHON_PACKAGES="boto boto3 ipython redis"
+
 RUN pip install $PYTHON_PACKAGES \
   && pip3 install $PYTHON_PACKAGES \
   && pip3 install awscli
