@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 RUN apt-get update && apt-get -y install \
     netcat-openbsd curl wget mtr-tiny iputils-ping bind9-host \
     iproute2 net-tools vim tmux ssh lsof screen dtach dnsutils \
@@ -14,12 +14,7 @@ RUN add-apt-repository ppa:git-core/ppa \
   && apt-get -y install git \
   && apt-get clean
 
-ENV _PIP_VERSION=9.0.2 \
-    PYTHON_PACKAGES="boto boto3 ipython redis"
-    
-RUN easy_install pip==$_PIP_VERSION \
-  && easy_install3 pip==$_PIP_VERSION \
-  && pip install $PYTHON_PACKAGES \
+RUN pip install $PYTHON_PACKAGES \
   && pip3 install $PYTHON_PACKAGES \
   && pip3 install awscli
 
