@@ -19,7 +19,7 @@ RUN add-apt-repository ppa:git-core/ppa \
   && apt-get -y install git \
   && apt-get clean \
   && export KUBECTL_URL=https://amazon-eks.s3-us-west-2.amazonaws.com/${KUBECTL_VERSION}/${KUBECTL_DATE}/bin/linux/amd64/kubectl \
-  && wget -O /usr/local/bin/kubectl curl -o kubectl ${KUBECTL_URL} \
+  && wget -O /usr/local/bin/kubectl ${KUBECTL_URL} \
   && echo "${KUBECTL_SHA256} /usr/local/bin/kubectl" | sha256sum --check \
   && chmod +x /usr/local/bin/kubectl
 
