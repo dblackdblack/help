@@ -1,7 +1,8 @@
 FROM ubuntu:focal
 
 ENV KUBECTL_VERSION=v1.23.3 \
-    KUBECTL_SHA256=d7da739e4977657a3b3c84962df49493e36b09cc66381a5e36029206dd1e01d0
+    KUBECTL_SHA256=d7da739e4977657a3b3c84962df49493e36b09cc66381a5e36029206dd1e01d0 \
+    DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get -y install \
     netcat-openbsd curl wget mtr-tiny iputils-ping bind9-host \
