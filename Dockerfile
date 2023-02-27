@@ -3,9 +3,11 @@ RUN go install github.com/rakyll/hey@latest \
 	&& install $(go env GOPATH)/bin/hey /usr/local/bin -o root -g root -m 0755 \
 	&& rm -rf $(go env GOPATH)
 
-RUN apt-get update \
+RUN echo "deb http://deb.debian.org/debian bullseye-backports main" > /etc/apt/sources.list.d/backports.list \
+	&& apt-get update \
 	&& apt-get -y install curl wget netcat python3-pip jq mtr-tiny bind9-host tmux lsof less \
 		psmisc strace apt-transport-https dnsutils net-tools zip unzip gzip bzip2 xz-utils \
+		make gcc build-essential vim dnsperf \
 	&& python3 -m pip install boto3 ipython redis
 
 RUN bash -c 'if [[ $(uname --machine) == "aarch64" ]] ; then \
